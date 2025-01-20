@@ -1,0 +1,34 @@
+<link rel="stylesheet" href="css/editor.css">
+
+<div class="editor-form">
+
+    <div class="editor-form__row">
+        <label for="date">Дата</label>
+        <input class="editor-form__input" type="date" autofocus name="date" value="<%= model.date %>"/>
+    </div>
+
+    <div class="editor-form__row">
+        <label class="" for="date">Процедуры</label>
+        <div class="fio-inputs">
+            <% for (let procedure of row) { %>
+            <div>
+                <input class="editor-form__input" type="text" name="fio" placeholder="ФИО пациента">
+                <input class="editor-form__input" type="checkbox" autofocus name="procedures"
+                       value="<%= [procedure.procedure_name, procedure.difficulty] %>"/>
+                <label for="scales">
+                    <%= procedure.procedure_name %>
+                </label>
+                <% } %>
+            </div>
+        </div>
+    </div>
+
+    <div class="editor-form__row">
+        <input class="editor-form__button submit-button" type="submit" name="send" value="Подтвердить"/>
+        <a class="editor-form__button cancel-button" href="/shifts">Назад</a>
+    </div>
+
+</div>
+
+
+
